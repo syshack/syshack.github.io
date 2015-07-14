@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="python,国际化," />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> 祭奠青春 </title>
+  <title> python国际化 // 祭奠青春 </title>
 </head>
 
 <body>
@@ -61,9 +61,7 @@
   </div>
 <![endif]-->
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -147,9 +145,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
+
   <div id="posts" class="posts-expand">
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -160,9 +158,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/07/14/python国际化/">
-                python国际化
-              </a>
+              python国际化
             
           
         </h1>
@@ -205,8 +201,7 @@
       
 
       
-        
-          <h3 id="什么是国际化">什么是国际化</h3><p>白话说就是多语言支持（i18n）</p>
+        <h3 id="什么是国际化">什么是国际化</h3><p>白话说就是多语言支持（i18n）</p>
 <h3 id="怎么实现国际化">怎么实现国际化</h3><p>python里通过gettext模块实现。具体步骤：</p>
 <ol>
 <li><p>在需要实现多语言的字符串前加 <code>_</code>,比如<br> <code>print &quot;hello,world&quot;</code><br> 改成</p>
@@ -232,289 +227,54 @@
 </ol>
 <h3 id="修改mo文件">修改mo文件</h3><p>当你拿到别人的语言文件觉得翻译不准确的话，你可以反编译mo文件，然后修改<br><code>msgunfmt messages.mo -o messages.po</code><br>修改完后，再编译成mo文件<br><code>msgfmt.py messages.po</code></p>
 
-        
       
     </div>
 
     <div class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/python-国际化/"> #python,国际化 </a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/09/ovf-ova-bare是什么/">ovf,ova,bare是什么</a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </div>
   </div>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/09/ovf-ova-bare是什么/">
-                ovf,ova,bare是什么
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-07-09
-        </span>
-
+      <div class="comments" id="comments">
         
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/技术/">技术</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/09/ovf-ova-bare是什么/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/09/ovf-ova-bare是什么/"></span>
-            </a>
-          </span>
-          
+          <div class="ds-thread" data-thread-key="2015/07/14/python国际化/"
+               data-title="python国际化" data-url="http://www.7eus.com/2015/07/14/python国际化/">
+          </div>
         
       </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>OVF，OVA，BARE都是开放的标准的虚拟化镜像容器。除了它们三个之外还有AKI，AMI，ARI，这三个是亚马逊定义的格式，不通用，不在讨论之列。</p>
-<h2 id="OVF：">OVF：</h2><p>Open Virtualization Format（开放虚拟化格式），是一种开源的文件规范。它的出现是为了方便虚拟机的打包和跨平台转移。它包含三部分：</p>
-<ul>
-<li>.ovf文件：xml格式包含了虚拟机的元数据，比如内存，cpu，外设，许可协议等信息。模板：<a href="http://schemas.dmtf.org/ovf/environment/1/dsp8027_1.1.xsd" title="DSP8027" target="_blank" rel="external">DSP8027</a></li>
-<li>磁盘文件：虚拟机的磁盘文件，raw，qcow2，vmdk等</li>
-<li>.mf文件：校验文件，保存了ovf文件和磁盘文件的sha摘要，防止ovf文件和虚拟机磁盘被篡改。</li>
-<li>.cert文件：保证.mf文件的合法性。Cert文件主要分为2个部分，一部分是mf文件的摘要，而另一部分是合法证书的证书内容。通过证书的验证来实现验证mf文件合法性的验证，进一步证明整个OVF文件包的合法性。Cert证书的生成主要依赖PKI，可以通过openssl来实现。</li>
-</ul>
-<h2 id="OVA">OVA</h2><p>OVA说白了就是，把OVF的那些文件合并起来，以tar的方式存在。</p>
-<h2 id="BARE">BARE</h2><p>就是只包含了磁盘文件，没有其他元数据。</p>
-<p>参考文档：<br><a href="www.dmtf.org/standards/ovf" title="DMTF文档">www.dmtf.org/standards/ovf</a><br><a href="http://docs.openstack.org/developer/glance/formats.html" title="http://docs.openstack.org/developer/glance/formats.html" target="_blank" rel="external">http://docs.openstack.org/developer/glance/formats.html</a></p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/09/我的产品观/">
-                我的产品观
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-07-09
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/09/我的产品观/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/09/我的产品观/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>本文源于最近工作的一些思考。</p>
-<h2 id="什么是一款好的产品？">什么是一款好的产品？</h2><p>产品是拿给用的，而不是用来YY的,所以一款好产品：</p>
-<ul>
-<li>首先他应该是一款满足用户需求，能解决用户某一方面问题的产品。 </li>
-<li>其次它应该是符合用户习惯，具有良好用户体验的产品。  </li>
-</ul>
-<h2 id="加法_or_减法？">加法 or 减法？</h2><p>这个没绝对的答案，是需要通过用户调研来决定。<br><strong>按照我对好产品的理解，以下一些情况需要做减法：</strong></p>
-<ul>
-<li>用户基本不会用到的功能。 </li>
-<li>用户认为可有可无的功能，同时功能不稳定或者用户体验不是很友好的功能。 </li>
-<li>功能入口（一个功能不要提供太多入口） </li>
-<li>不稳定，用户操作体验不好的功能。 </li>
-</ul>
-<p><strong>那哪些需要做加法？</strong></p>
-<ul>
-<li>大多用户呼声很大的功能。—用户认为能解决自己问题的功能，优先级最高。 </li>
-<li>解决用户某一方面问题的功能。—我们认为能解决用户某方面的问题的功能。 </li>
-<li>酷炫+功能稳定，同时工作量不是太大的功能。—锦上添花，在产品到某一阶段之后才考虑去做，是优先级最低的。 </li>
-</ul>
-<h2 id="想好再做_or_先做好再说">想好再做 or 先做好再说</h2><p>不好说哪种是对的，在不同的产品阶段，需要不同的处理方式。<br>我认为产品周期是这样的 </p>
-<blockquote>
-<p>筹划期-初期-发展期-稳定期 </p>
-</blockquote>
-<p><strong>什么时候需要想好再做呢？ </strong></p>
-<ul>
-<li>产品筹划期，需要想好产品的基本功能。 </li>
-<li>产品发展期，这时候每个功能都需要仔细斟酌，聚焦用户的需求，详细参考好产品的定义。</li>
-</ul>
-<p><strong>什么时候需要先做好再说呢？</strong> </p>
-<ul>
-<li>产品初期，这时候你需要先做出产品，交给用户和市场去检验，去寻找用户到底需要什么，为下一阶段打基础。 </li>
-<li>产品稳定期，有了一定的用户，产品也比较稳定，有时间人力精力去试错。 </li>
-</ul>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/03/虚拟化知识整理/">
-                虚拟化知识整理
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-07-03
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/技术/">技术</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/03/虚拟化知识整理/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/03/虚拟化知识整理/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><img src="/images/Virtualization-v1.png" alt="虚拟化知识"></p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
   </div>
 
-  
 
         </div>
 
@@ -535,6 +295,15 @@
   <div id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <div class="site-overview">
@@ -603,6 +372,17 @@
       </div>
 
       
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是国际化"><span class="nav-number">1.</span> <span class="nav-text">什么是国际化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么实现国际化"><span class="nav-number">2.</span> <span class="nav-text">怎么实现国际化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改mo文件"><span class="nav-number">3.</span> <span class="nav-text">修改mo文件</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
 
     </div>
   </div>
@@ -664,6 +444,145 @@
   <script type="text/javascript" src="/js/search-toggle.js"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
